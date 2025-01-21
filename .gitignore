@@ -1,0 +1,44 @@
+# ----------------------------------
+#   SISTEMA OPERATIVO
+# ----------------------------------
+.DS_Store
+Thumbs.db
+
+# ----------------------------------
+#   PYTHON
+# ----------------------------------
+venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+dist/
+build/ 
+# (Nota: si tu backend genera una carpeta build/dist independiente de la de React, la mantienes ignorada)
+
+# ----------------------------------
+#   NODE / REACT
+# ----------------------------------
+node_modules/
+npm-debug.log
+yarn-error.log
+# Build de React
+build/
+# Coverage (si usas pruebas de cobertura)
+coverage/
+# Archivos de configuración locales
+.env
+
+# ----------------------------------
+#   DOCKER
+# ----------------------------------
+# Opcional, si usas .env para Docker Compose
+docker-compose.override.yml
+*.env
+
+# ----------------------------------
+#   LOGS
+# ----------------------------------
+*.log
+logs/
+*.log.*

@@ -1,0 +1,117 @@
+/* Contenedor general */
+.container {
+    max-width: 600px;
+    margin: 2rem auto;
+    padding: 1rem 2rem; /* un poco más de padding horizontal */
+    font-family: sans-serif;
+    background-color: #fdfdfd;
+    border: 1px solid #eee;
+    border-radius: 8px;
+  }
+  
+  /* Emoji logo */
+  .emoji-logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+  .emoji-big {
+    font-size: 3rem;
+  }
+  .emoji-plus {
+    margin: 0 1rem;
+    font-size: 2rem;
+    color: #555;
+  }
+  
+  /* Título principal */
+  .title {
+    text-align: center;
+    margin-bottom: 1rem;
+    color: #cc0000;
+  }
+  
+  /* Form principal */
+  .form-box {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem; /* más separación entre elementos */
+  }
+  
+  .form-box label {
+    font-weight: bold;
+    margin-bottom: 0.3rem;
+  }
+  
+  /* Inputs y selects más grandes y llamativos */
+  .form-box input[type="text"],
+  .language-select {
+    width: 100%;          /* usar todo el ancho del contenedor */
+    padding: 0.8rem 1rem; /* espacio interior */
+    font-size: 1rem;      
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box; /* para que width = 100% se respete */
+  }
+  
+  /* Checkbox */
+  .timestamps-checkbox {
+    display: flex;
+    align-items: center;
+  }
+  
+  /* Botón de Descargar */
+  .download-button {
+    background-color: #cc0000;
+    color: #fff;
+    border: none;
+    padding: 0.7rem 1.2rem;
+    font-size: 1.05rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-weight: 600;
+  }
+  .download-button:hover {
+    background-color: #b30000;
+  }
+  
+  /* Mensajes de error */
+  .error-message {
+    color: red;
+    font-weight: bold;
+  }
+  
+  /* Footer */
+  .footer {
+    margin-top: 2rem;
+    text-align: center;
+    color: #555;
+    font-size: 0.95rem;
+    line-height: 1.4;
+  }
+  
+  .footer-link {
+    text-decoration: none;
+    color: #cc0000;
+    font-weight: bold;
+    margin: 0 0.5rem;
+  }
+  .footer-link:hover {
+    color: #990000;
+  }
+  
+  /* Íconos en el footer */
+  .icon {
+    margin-right: 4px;
+    vertical-align: middle;
+  }
+  
+  .mini-disclaimer {
+    color: #888;         /* gris apagado */
+    font-size: 0.9rem;   /* un poco más pequeño */
+    margin-top: 0.5rem;
+    text-align: center;
+  }
+  
