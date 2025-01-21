@@ -1,3 +1,5 @@
+![alt text](preview.png)
+
 # YouTube Transcript Downloader
 
 Esta aplicación web permite obtener y descargar el transcript (subtítulos) de un video de YouTube en formato TXT. La solución integra:
