@@ -77,4 +77,4 @@ jobs:
       
       - name: Force Pod Restart
         run: |
-          kubectl rollout restart deployment/youtube-transcript-deployment -n youtube-transcript --kubeconfig=$(pwd)/kubeconfig.yaml
+          kubectl rollout restart deployment/youtube-transcript -n youtube-transcript --kubeconfig=$(pwd)/kubeconfig.yaml
