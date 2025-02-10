@@ -1,23 +1,66 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
-    <meta name="description" content="Aplicación web para descargar transcript de YouTube" />
-    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
-    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet" />
-    <!-- Favicon con la claqueta 🎬 -->
-    <link
-    rel="icon"
-    href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22128%22 height=%22128%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22red%22 rx=%2210%22 ry=%2210%22 /><text x=%2250%25%22 y=%2250%25%22 font-size=%2270%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22>🎬</text></svg>"
-    />
-  
-
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Descargar Transcript de YouTube</title>
-  </head>
-  <body>
-    <noscript>Necesitas habilitar JavaScript para ejecutar esta aplicación.</noscript>
-    <div id="root"></div>
-  </body>
+    <meta name="description" content="Descarga el transcript de un video de YouTube en formato .txt, con o sin marcas de tiempo.">
+    <meta name="keywords" content="YouTube, transcript, subtítulos, guion, descargar, video">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <div class="container">
+        <!-- Logo emojis -->
+        <div class="emoji-logo">
+            <span class="emoji-big">🎬</span>
+            <span class="emoji-plus">+</span>
+            <span class="emoji-big">📝</span>
+        </div>
+
+        <h1 class="title">Descargar Transcript</h1>
+
+        <main class="form-box">
+            <label for="video-input">Enlace del video de YouTube:</label>
+            <input id="video-input" type="text" placeholder="Ej: https://www.youtube.com/watch?v=dQw4w9WgXcQ">
+
+            <label for="language-select">Idioma del video:</label>
+            <select id="language-select" class="language-select">
+                <option value="en">🇺🇸 Inglés</option>
+                <option value="es">🇪🇸 Español</option>
+                <option value="pt">🇵🇹 Portugués</option>
+                <option value="ru">🇷🇺 Ruso</option>
+                <option value="ja">🇯🇵 Japonés</option>
+                <option value="ko">🇰🇷 Coreano</option>
+                <option value="fr">🇫🇷 Francés</option>
+                <option value="de">🇩🇪 Alemán</option>
+                <option value="tr">🇹🇷 Turco</option>
+                <option value="hi">🇮🇳 Hindi</option>
+            </select>
+
+            <div class="timestamps-checkbox">
+                <label>
+                    <input type="checkbox" id="timestamps-checkbox">
+                    Incluir marcas de tiempo
+                </label>
+            </div>
+
+            <button id="download-button" class="download-button">Descargar Transcript</button>
+
+            <p id="error-message" class="error-message"></p>
+        </main>
+
+        <footer class="footer">
+            <p>Desarrollado por <strong>Rafael Nogales</strong>.</p>
+            <p class="mini-disclaimer">Organiza una llamada gratuita conmigo para ayudarte en tus proyectos.</p>
+            <p>
+                <a href="https://github.com/RNogales94" target="_blank" class="footer-link">GitHub</a> |
+                <a href="mailto:rnogales.dev@gmail.com" class="footer-link">Email</a> |
+                <a href="https://t.me/RNogales" target="_blank" class="footer-link">Telegram</a>
+            </p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
 </html>

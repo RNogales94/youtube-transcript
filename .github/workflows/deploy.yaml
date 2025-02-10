@@ -63,7 +63,7 @@ jobs:
       - name: Update Deployment annotation
         run: |
           sed -i "s#kubernetes.io/change-cause:.*#kubernetes.io/change-cause: 'Update $(date +"%Y-%m-%d %H:%M:%S")'#" k8s/deployment.yaml
-      
+    
       - name: Ensure Namespace Exists
         run: |
           kubectl get namespace youtube-transcript --kubeconfig=$(pwd)/kubeconfig.yaml || \
