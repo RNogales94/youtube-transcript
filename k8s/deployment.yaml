@@ -21,7 +21,7 @@ spec:
       - name: ghcr-secret
       containers:
       - name: youtube-transcript-container
-        image: ghcr.io/quimicox/youtube-transcript:latest
+        image: ghcr.io/rnogales94/youtube-transcript:latest
         imagePullPolicy: Always
         ports:
         - containerPort: 5000
