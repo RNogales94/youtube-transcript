@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: youtube-transcript
+  namespace: youtube-transcript
+  labels:
+    app: youtube-transcript
+  annotations:
+    kubernetes.io/change-cause: "Update $(date +'%Y-%m-%d %H:%M:%S')"
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: youtube-transcript
+  template:
+    metadata:
+      labels:
+        app: youtube-transcript
+    spec:
+      imagePullSecrets:
+      - name: ghcr-secret
+      containers:
+      - name: youtube-transcript-container
+        image: ghcr.io/quimicox/youtube-transcript:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 5000
+        env:  # Variables de entorno (opcional)
+        - name: ENVIRONMENT
+          value: "production"
