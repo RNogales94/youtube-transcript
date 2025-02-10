@@ -7,7 +7,7 @@ WORKDIR /app
 
 # Instalamos las dependencias del backend
 COPY backend/requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt gunicorn
 
 # Copiamos el código del backend
 COPY backend/ .
