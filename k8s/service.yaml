@@ -10,4 +10,4 @@ spec:
     - protocol: TCP
       port: 80        # Puerto en el Service
       targetPort: 5000  # Puerto en el container
-  type: ClusterIP
+  type: LoadBalancer
