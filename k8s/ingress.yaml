@@ -4,19 +4,19 @@ metadata:
   name: youtube-transcript
   namespace: youtube-transcript
   annotations:
-    # Informa a Traefik que use ambos entrypoints
+    # Indica a Traefik que use ambos entrypoints
     traefik.ingress.kubernetes.io/router.entrypoints: web,websecure
     # Habilita TLS en el router
     traefik.ingress.kubernetes.io/router.tls: "true"
-    # Forzar la redirección a HTTPS usando el Middleware creado
+    # (Opcional) Middleware para redirigir HTTP a HTTPS
     traefik.ingress.kubernetes.io/router.middlewares: youtube-transcript/redirect-to-https@kubernetescrd
-    # Si usas Cert Manager para la emisión de certificados (opcional)
+    # Indica a Cert Manager que use el ClusterIssuer para obtener el certificado
     cert-manager.io/cluster-issuer: "letsencrypt-prod"
 spec:
   tls:
   - hosts:
       - text-youtube.com
-    secretName: text-youtube-tls  # El Secret se crea/actualiza automáticamente con Cert Manager
+    secretName: text-youtube-tls  # Este Secret será creado y actualizado por Cert Manager
   rules:
   - host: text-youtube.com
     http:
