@@ -8,8 +8,6 @@ metadata:
     traefik.ingress.kubernetes.io/router.entrypoints: web,websecure
     # Habilita TLS en el router
     traefik.ingress.kubernetes.io/router.tls: "true"
-    # Indica qué certresolver (ACME) utilizar para obtener certificados
-    traefik.ingress.kubernetes.io/router.tls.certresolver: myresolver
     # Forzar la redirección a HTTPS usando el Middleware creado
     traefik.ingress.kubernetes.io/router.middlewares: youtube-transcript/redirect-to-https@kubernetescrd
     # Si usas Cert Manager para la emisión de certificados (opcional)
