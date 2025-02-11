@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Descargar Transcripción y Subtítulos SRT de YouTube Gratis</title>
+    <meta name="description" content="Convierte videos de YouTube en transcripciones o subtítulos SRT en segundos. Descarga subtítulos con marcas de tiempo o texto limpio. Rápido y gratis.">
+    <meta name="keywords" content="YouTube transcript, descargar guión o subtítulos, SRT, transcripciones automáticas, extraer texto de videos, subtítulos de YouTube">
+    <meta name="author" content="Rafael Nogales">
+
+    <!-- Open Graph Meta Tags (Para compartir en redes sociales) -->
+    <meta property="og:title" content="Descargar Transcripción y Subtítulos SRT de YouTube Gratis">
+    <meta property="og:description" content="Extrae transcripciones y subtítulos de YouTube en formato TXT o SRT con un solo clic.">
+    <meta property="og:image" content="https://text-youtube.com/static/preview-image.png"> 
+    <meta property="og:url" content="https://text-youtube.com">
+    <meta property="og:type" content="website">
+
+    <!-- Schema.org Structured Data -->
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "WebApplication",
+            "name": "Descargar Transcripción y Subtítulos de YouTube",
+            "description": "Convierte videos de YouTube en transcripciones o subtítulos SRT con un solo clic. También puedes descargar el guion de YouTube en formato TXT para analizar el contenido fácilmente.",
+            "url": "https://text-youtube.com",
+            "operatingSystem": "Web",
+            "applicationCategory": "Utility",
+            "browserRequirements": "Requires JavaScript. Works best on Chrome, Firefox, Edge.",
+            "applicationSoftwareVersion": "1.0.0",
+            "author": {
+                "@type": "Person",
+                "name": "Rafael Nogales",
+                "url": "https://github.com/RNogales94"
+            },
+            "offers": {
+                "@type": "Offer",
+                "price": "0",
+                "priceCurrency": "USD"
+            },
+            "featureList": [
+                "Descarga transcripciones en formato TXT o SRT",
+                "Compatible con múltiples idiomas",
+                "Incluye marcas de tiempo",
+                "Interfaz minimalista y rápida",
+                "Descargar guion de YouTube para analizar contenido"
+            ]
+        }
+        </script>
+        
+
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+</head>
+<body>
+
+    <div class="container">
+        <!-- Título con emojis -->
+        <div class="emoji-logo">
+            <span class="emoji-big">🎬</span>
+            <span class="emoji-plus">+</span>
+            <span class="emoji-big">📝</span>
+        </div>
+        <h1 class="title">Descargar Transcripción y Subtítulos SRT</h1>
+
+        <main class="form-box">
+            <input id="video-input" type="text" placeholder="Pega el enlace del video de YouTube">
+
+            <select id="language-select" class="language-select">
+                <option value="en">🇺🇸 Inglés</option>
+                <option value="es" selected>🇪🇸 Español</option>
+                <option value="pt">🇵🇹 Portugués</option>
+                <option value="fr">🇫🇷 Francés</option>
+                <option value="de">🇩🇪 Alemán</option>
+            </select>
+
+            <div class="format-toggle">
+                <span>Formato:</span>
+                <label class="switch">
+                    <input type="checkbox" id="format-toggle">
+                    <span class="slider round"></span>
+                </label>
+                <span id="format-label">TXT</span>
+            </div>
+
+            <button id="download-button" class="download-button">Descargar</button>
+            <p id="error-message" class="error-message"></p>
+        </main>
+
+        <!-- Footer con links -->
+        <footer class="footer">
+            <p>Desarrollado por <strong>Rafael Nogales.</strong></p>
+            <p class="mini-disclaimer">Si te hace falta un desarrollador, hablemos.</p>
+            <div class="social-links">
+                <a href="https://github.com/RNogales94" target="_blank" class="footer-link">
+                    <i class="fab fa-github"></i> GitHub
+                </a>
+                <span>|</span>
+                <a href="mailto:rnogales.dev@gmail.com" class="footer-link">
+                    <i class="fas fa-envelope"></i> Email
+                </a>
+                <span>|</span>
+                <a href="https://t.me/RNogales" target="_blank" class="footer-link">
+                    <i class="fas fa-paper-plane"></i> Telegram
+                </a>
+            </div>
+        </footer>
+        
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>

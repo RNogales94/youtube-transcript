@@ -9,9 +9,6 @@ RUN pip install --no-cache-dir -r requirements.txt waitress
 # Copiamos el código del backend
 COPY backend/ .
 
-# Copiamos los archivos estáticos del frontend a la carpeta de Flask
-COPY frontend/public/ backend/static/
-
 # Exponer el puerto en el que se ejecuta Flask
 EXPOSE 5000
 

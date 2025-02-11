@@ -7,7 +7,7 @@ metadata:
     traefik.ingress.kubernetes.io/router.entrypoints: web
 spec:
   rules:
-  - host: 157.180.21.197.traefik.me  # Cambia esto por tu dominio
+  - host: text-youtube.com  # Cambia esto por tu dominio
     http:
       paths:
       - path: /

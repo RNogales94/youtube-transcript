@@ -1,7 +1,7 @@
 import os
 import datetime
 from io import StringIO
-from flask import Flask, request, jsonify, send_file, send_from_directory, make_response
+from flask import Flask, request, jsonify, send_from_directory, make_response
 from flask_cors import CORS
 from youtube_transcript_api import YouTubeTranscriptApi
 from urllib.parse import urlparse, parse_qs
@@ -28,12 +28,25 @@ def extract_video_id(video_str):
     
     return video_str
 
+def format_transcript_srt(transcript):
+    """
+    Convierte la transcripción en formato SRT.
+    """
+    srt_text = StringIO()
+    for i, entry in enumerate(transcript, start=1):
+        start = str(datetime.timedelta(seconds=int(entry['start']))).replace('.', ',')
+        end = str(datetime.timedelta(seconds=int(entry['start'] + entry['duration']))).replace('.', ',')
+        text = entry.get('text', '')
+
+        srt_text.write(f"{i}\n{start} --> {end}\n{text}\n\n")
+
+    return srt_text.getvalue()
+
 @app.route('/api/transcript', methods=['GET'])
 def get_transcript():
     video_str = request.args.get('videoId')
-    language = request.args.get('language')  
-    timestamps_param = request.args.get('timestamps', 'true').lower()
-    with_timestamps = timestamps_param in ('true', '1', 'yes')
+    language = request.args.get('language')
+    format_type = request.args.get('format', 'txt').lower()  # Nuevo parámetro para elegir formato
 
     if not video_str:
         return jsonify({'error': 'Falta el parámetro videoId'}), 400
@@ -43,22 +56,25 @@ def get_transcript():
     try:
         transcript = YouTubeTranscriptApi.get_transcript(video_id, languages=[language] if language else None)
 
-        transcript_text = StringIO()
-        for entry in transcript:
-            text = entry.get('text', '')
-            if with_timestamps:
-                start = entry.get('start', 0)
-                duration = entry.get('duration', 0)
-                inicio = str(datetime.timedelta(seconds=int(start)))
-                fin = str(datetime.timedelta(seconds=int(start + duration)))
-                transcript_text.write(f"[{inicio} - {fin}] {text}\n")
-            else:
+        if format_type == 'srt':
+            transcript_text = format_transcript_srt(transcript)
+            filename = f"transcript_{video_id}.srt"
+            content_type = "application/x-subrip"
+        else:
+            # Formato TXT
+            transcript_text = StringIO()
+            for entry in transcript:
+                text = entry.get('text', '')
                 transcript_text.write(f"{text}\n")
 
-        transcript_text.seek(0)
-        response = make_response(transcript_text.read())
-        response.headers['Content-Disposition'] = f'attachment; filename=transcript_{video_id}.txt'
-        response.headers["Content-Type"] = "text/plain; charset=utf-8"
+            transcript_text.seek(0)
+            transcript_text = transcript_text.read()
+            filename = f"transcript_{video_id}.txt"
+            content_type = "text/plain; charset=utf-8"
+
+        response = make_response(transcript_text)
+        response.headers['Content-Disposition'] = f'attachment; filename={filename}'
+        response.headers["Content-Type"] = content_type
         return response
 
     except Exception as e:
