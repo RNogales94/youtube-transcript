@@ -9,7 +9,7 @@ metadata:
     # Habilita TLS en el router
     traefik.ingress.kubernetes.io/router.tls: "true"
     # (Opcional) Middleware para redirigir HTTP a HTTPS
-    traefik.ingress.kubernetes.io/router.middlewares: youtube-transcript/redirect-to-https@kubernetescrd
+    # traefik.ingress.kubernetes.io/router.middlewares: youtube-transcript/redirect-to-https@kubernetescrd
     # Indica a Cert Manager que use el ClusterIssuer para obtener el certificado
     cert-manager.io/cluster-issuer: "letsencrypt-prod"
 spec:
