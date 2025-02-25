@@ -71,10 +71,12 @@ jobs:
     
       - name: Deploy to K3s
         run: |          
-          kubectl apply -f k8s/deployment.yaml --kubeconfig=$(pwd)/kubeconfig.yaml
-          kubectl apply -f k8s/middleware-https-redirect.yaml --kubeconfig=$(pwd)/kubeconfig.yaml
-          kubectl apply -f k8s/service.yaml --kubeconfig=$(pwd)/kubeconfig.yaml
-          kubectl apply -f k8s/ingress.yaml --kubeconfig=$(pwd)/kubeconfig.yaml
+          kubectl --kubeconfig=$(pwd)/kubeconfig.yaml apply -f k8s/namespace.yaml
+          kubectl --kubeconfig=$(pwd)/kubeconfig.yaml apply -f k8s/redirect-middleware.yaml
+          kubectl --kubeconfig=$(pwd)/kubeconfig.yaml apply -f k8s/deployment.yaml
+          kubectl --kubeconfig=$(pwd)/kubeconfig.yaml apply -f k8s/service.yaml
+          kubectl --kubeconfig=$(pwd)/kubeconfig.yaml apply -f k8s/ingress.yaml
+
       
       - name: Force Pod Restart
         run: |
